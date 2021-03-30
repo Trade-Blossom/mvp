@@ -3,10 +3,11 @@ import axios from 'axios';
 import Chart from './Chart.jsx';
 import Feed from './Feed.jsx';
 import DescriptionBar from './DescriptionBar.jsx';
+import FeedItem from './FeedItem.jsx';
 
 
 const App = () => {
-  const [metaData, setMetaData] = useState({});
+  const [metaData, setMetaData] = useState([]);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
@@ -21,9 +22,9 @@ const App = () => {
     setSearch(e.target.value)
   }
 
-  const filterList = () => {
-
-  }
+  const filterList = metaData.filter( data =>
+    data.name.toLowerCase().includes(search.toLowerCase())
+  )
 
   return (
     <div className="app-container">
@@ -35,7 +36,7 @@ const App = () => {
         </form>
       </div>
       <Chart />
-      <Feed />
+      <Feed filterList={filterList} />
     </div>
   )
 }
