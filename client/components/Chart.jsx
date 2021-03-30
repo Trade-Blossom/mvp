@@ -6,15 +6,16 @@ const Chart = () => {
 
   const lineChart = () => {
     setChartData({
-      labels: ['Monday', 'Tuesday', 'Wednesday', 'Thusday', 'Friday'],
+      labels: ['Monday', 'Tuesday', 'Wednesday', 'Thusday', 'Friday', 'Saturday'],
       datasets: [
         {
           label: 'Value',
-          data: [15, 7, 21, 23, 19],
+          data: [15, 7, 21, 23, 19, 25],
           backgroundColor: [
-            'rgba(0, 128, 128, 1)'
+            'rgba(0, 128, 128, 0.6)'
           ],
-          borderWidth: 4
+          borderWidth: 4,
+          lineTension: 0
         }
       ]
     })
@@ -25,10 +26,11 @@ const Chart = () => {
   }, [])
 
   return (
-    <div classname="chart" style={{width: "800px", height: "500px"}}>
+    <div className="chart" >
       <Line data={chartData} options={{
         responsive: true,
-        title: { text: 'Portfolio', display: true}
+        title: { text: 'Portfolio', display: true},
+        maintainAspectRatio: false,
       }}/>
     </div>
   )
