@@ -11,7 +11,7 @@ const FeedItem = ({ name, image, symbol, price, volume, priceChange, marketCap }
 
         </div>
         <div className="asset-data">
-          <p className="asset-price">{price}</p>
+          <p className="asset-price">${price.toLocaleString()}</p>
           <p className="asset-market-cap">{marketCap}</p>
           {
             priceChange < 0 ? (

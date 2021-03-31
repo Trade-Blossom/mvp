@@ -3,6 +3,7 @@ import axios from 'axios';
 import Chart from './Chart.jsx';
 import Feed from './Feed.jsx';
 import FeedItem from './FeedItem.jsx';
+import DescriptionBar from './DescriptionBar.jsx';
 import '../styles.css'
 
 
@@ -22,7 +23,7 @@ const App = () => {
     setSearch(e.target.value)
   }
 
-  const filterList = metaData.filter( data =>
+  const filterList = metaData.filter(data =>
     data.name.toLowerCase().includes(search.toLowerCase())
   )
 
@@ -36,6 +37,7 @@ const App = () => {
         </form>
       </div>
       <Chart />
+      <DescriptionBar />
       <Feed filterList={filterList} />
     </div>
   )
