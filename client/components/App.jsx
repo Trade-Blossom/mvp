@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <h1>Trade Blossom</h1>
+      <h1>Coin Garden</h1>
       <div className="search-form">
         <h2>Search for an asset</h2>
         <form>
