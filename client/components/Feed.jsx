@@ -11,7 +11,9 @@ const Feed = ({filterList, asset}) => {
         image={asset.image}
         symbol={asset.symbol}
         price={asset.current_price}
-        volume={asset.market_cap}
+        volume={asset.total_volume}
+        priceChange={asset.price_change_percentage_24h}
+        marketCap={asset.market_cap}
         />
       )
     })

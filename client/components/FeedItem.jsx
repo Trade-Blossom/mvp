@@ -1,19 +1,26 @@
 import React from 'react';
 
-const FeedItem = ({ name, image, symbol, price, volume }) => {
+const FeedItem = ({ name, image, symbol, price, volume, priceChange, marketCap }) => {
   return (
-    <div className="feed-item-container">
-      <div className="feed-item-row">
-        <div className="feed-item">
+    <div className="asset-container">
+      <div className="asset-row">
+        <div className="asset">
           <img src={image} alt="asset" />
           <h1>{name}</h1>
-          <p className="feed-item-symbol">{symbol}</p>
+          <p className="asset-symbol">{symbol}</p>
 
         </div>
-        <div className="feed-item-data">
-          <p className="feed-item-price">{price}</p>
-          <p className="feed-item-volume">{volume}</p>
-
+        <div className="asset-data">
+          <p className="asset-price">{price}</p>
+          <p className="asset-market-cap">{marketCap}</p>
+          {
+            priceChange < 0 ? (
+              <p className="asset-percent red">{priceChange.toFixed(2)}%</p>
+            ) : (
+              <p className="asset-percent green">{priceChange.toFixed(2)}%</p>
+            )
+          }
+          <p className="asset-volume">{volume}</p>
         </div>
       </div>
     </div>

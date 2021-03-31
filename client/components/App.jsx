@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Chart from './Chart.jsx';
 import Feed from './Feed.jsx';
-import DescriptionBar from './DescriptionBar.jsx';
 import FeedItem from './FeedItem.jsx';
 
 
