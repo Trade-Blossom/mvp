@@ -3,6 +3,7 @@ import axios from 'axios';
 import Chart from './Chart.jsx';
 import Feed from './Feed.jsx';
 import FeedItem from './FeedItem.jsx';
+import '../styles.css'
 
 
 const App = () => {
