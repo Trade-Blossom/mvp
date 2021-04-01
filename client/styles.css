@@ -94,15 +94,15 @@ header {
 }
 
 .asset-price {
-  width: 110px;
+  width: 150px;
+}
+
+.asset-market-cap {
+  width: 200px;
 }
 
 .asset-volume {
   width: 155px;
-}
-
-.asset-market-cap {
-  width: 230px;
 }
 
 .asset-percent {
@@ -126,6 +126,7 @@ header {
   height: 25px;
   width: 210px;
   outline: none;
+  border-radius: 4px;
 }
 
 .search-input:focus {
