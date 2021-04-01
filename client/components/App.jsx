@@ -66,7 +66,7 @@ const App = () => {
           <h1>Coin Garden</h1>
         </header>
         <div className="search-form">
-          <h2>Search for a crypto</h2>
+          <h3>Search for a crypto</h3>
           <form>
             <input type="text" placeholder="Search" className="search-input" onChange={handleSearch} />
           </form>
