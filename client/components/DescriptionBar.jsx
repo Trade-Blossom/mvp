@@ -3,7 +3,7 @@ import React from 'react'
 const DescriptionBar = () => {
   return (
     <div className="asset-container description-bar">
-      <div className="asset-row">
+      <div className="description-row">
         <div className="asset">
           <h1>Name</h1>
           <p className="asset-symbol"></p>

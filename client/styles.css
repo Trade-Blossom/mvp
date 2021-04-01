@@ -60,7 +60,8 @@ header {
   align-items: center;
   height: 80px;
   border-bottom: 1px solid teal;
-  width: 900px
+  width: 900px;
+  cursor: pointer;
 }
 
 .asset {
@@ -119,6 +120,17 @@ header {
 
 .description-bar {
   font-weight: bold;
+  justify-content: center;
+}
+
+.description-row {
+  display: flex;
+  justify-items: start;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid teal;
+  width: 900px;
+  cursor: grab;
 }
 
 .search-input {
