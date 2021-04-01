@@ -10,8 +10,9 @@ import '../styles.css'
 const App = () => {
   const [metaData, setMetaData] = useState([]);
   const [search, setSearch] = useState('');
-  const [timeArray, setTimeArray] = useState([])
-  const [priceArray, setPriceArray] = useState([])
+  const [timeArray, setTimeArray] = useState([]);
+  const [priceArray, setPriceArray] = useState([]);
+  const [coinName, setCoinName] = useState('Bitcoin')
 
   useEffect(() => {
     axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
@@ -37,9 +38,10 @@ const App = () => {
     setSearch(e.target.value)
   }
 
-  const handleItemClick = (e) => {
-    axios.get(`https://api.coingecko.com/api/v3/coins/${e}/market_chart?vs_currency=usd&days=14`)
+  const handleItemClick = (id, name) => {
+    axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=14`)
       .then((history) => {
+        setCoinName(name)
         let times = []
         let prices = []
         history.data.prices.forEach((price) => {
@@ -57,18 +59,23 @@ const App = () => {
   )
 
   return (
-    <div className="app-container">
-      <h1>Coin Garden</h1>
-      <div className="search-form">
-        <h2>Search for a crypto</h2>
-        <form>
-          <input type="text" placeholder="Search" className="search-input" onChange={handleSearch} />
-        </form>
+    <>
+      <div className="app-container">
+        <header className="header-container">
+          <img src="https://i.imgur.com/o7eDb5C.png" alt="icon" />
+          <h1>Coin Garden</h1>
+        </header>
+        <div className="search-form">
+          <h2>Search for a crypto</h2>
+          <form>
+            <input type="text" placeholder="Search" className="search-input" onChange={handleSearch} />
+          </form>
+        </div>
+        <Chart timeArray={timeArray} priceArray={priceArray} name={coinName} />
+        <DescriptionBar />
+        <Feed filterList={filterList} handleItemClick={handleItemClick} />
       </div>
-      <Chart timeArray={timeArray} priceArray={priceArray} />
-      <DescriptionBar />
-      <Feed filterList={filterList} handleItemClick={handleItemClick} />
-    </div>
+    </>
   )
 }
 

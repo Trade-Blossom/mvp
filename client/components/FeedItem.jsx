@@ -43,7 +43,7 @@ const FeedItem = ({ name, image, symbol, price, volume, priceChange, marketCap, 
 
   return (
     <div className="asset-container">
-      <div className="asset-row" onClick={ () => {handleItemClick(id)} }>
+      <div className="asset-row" onClick={ () => {handleItemClick(id, name)} }>
         <div className="asset">
           <img src={image} alt="asset" />
           <h1>{name}</h1>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 
-const Chart = ({ timeArray, priceArray }) => {
+const Chart = ({ timeArray, priceArray, name }) => {
   const [chartData, setChartData] = useState({});
 
   const lineChart = () => {
@@ -31,7 +31,7 @@ const Chart = ({ timeArray, priceArray }) => {
     <div className="chart" >
       <Line data={chartData} options={{
         responsive: true,
-        title: { text: 'Bitcoin Price', display: true },
+        title: { text: `${name} Price`, display: true },
         maintainAspectRatio: false,
         tooltips: {
           mode: 'index',
