@@ -15,7 +15,9 @@ const Chart = ({ timeArray, priceArray }) => {
             'rgba(0, 128, 128, 0.6)'
           ],
           borderWidth: 4,
-          lineTension: 0
+          lineTension: 0,
+          radius: 0,
+          hoverRadius: 4
         }
       ]
     })
@@ -31,6 +33,14 @@ const Chart = ({ timeArray, priceArray }) => {
         responsive: true,
         title: { text: 'Bitcoin Price', display: true },
         maintainAspectRatio: false,
+        tooltips: {
+          mode: 'index',
+          intersect: false
+        },
+        hover: {
+          mode: 'index',
+          intersect: false
+        },
         scales: {
           xAxes: [{
             type: 'time',
