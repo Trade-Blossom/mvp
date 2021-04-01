@@ -32,6 +32,7 @@ header {
   justify-content: center;
   height: 30vh;
   width: 900px;
+  cursor: crosshair;
 }
 
 .feed {
@@ -143,4 +144,57 @@ header {
 
 .search-input:focus {
   border: 2px solid teal;
+}
+
+.controller-container {
+
+}
+
+.controller-price {
+  display: inline-block;
+}
+
+.controller-filters {
+  float: right;
+  cursor: pointer;
+}
+
+.controller-day {
+  cursor: pointer;
+}
+
+.controller-day:hover {
+  color: teal;
+}
+
+.controller-week {
+  cursor: pointer;
+}
+
+.controller-week:hover {
+  color: teal;
+}
+
+.controller-month {
+  cursor: pointer;
+}
+
+.controller-month:hover {
+  color: teal;
+}
+
+.controller-year {
+  cursor: pointer;
+}
+
+.controller-year:hover {
+  color: teal;
+}
+
+.controller-all {
+  cursor: pointer;
+}
+
+.controller-all:hover {
+  color: teal;
 }

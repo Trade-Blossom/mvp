@@ -4,6 +4,7 @@ import Chart from './Chart.jsx';
 import Feed from './Feed.jsx';
 import FeedItem from './FeedItem.jsx';
 import DescriptionBar from './DescriptionBar.jsx';
+import ControllerBar from './ControllerBar.jsx';
 import '../styles.css'
 
 
@@ -20,7 +21,7 @@ const App = () => {
         setMetaData(response.data)
       })
       .catch((error) => { console.log('error fetching API data: ', error) })
-    axios.get('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=14')
+    axios.get('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=7')
       .then((history) => {
         let times = []
         let prices = []
@@ -39,7 +40,7 @@ const App = () => {
   }
 
   const handleItemClick = (id, name) => {
-    axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=14`)
+    axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7`)
       .then((history) => {
         setCoinName(name)
         let times = []
@@ -71,6 +72,7 @@ const App = () => {
             <input type="text" placeholder="Search" className="search-input" onChange={handleSearch} />
           </form>
         </div>
+        <ControllerBar />
         <Chart timeArray={timeArray} priceArray={priceArray} name={coinName} />
         <DescriptionBar />
         <Feed filterList={filterList} handleItemClick={handleItemClick} />
