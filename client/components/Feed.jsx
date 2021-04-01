@@ -1,7 +1,7 @@
 import React from 'react';
 import FeedItem from './FeedItem.jsx';
 
-const Feed = ({ filterList, asset }) => {
+const Feed = ({ filterList, asset, handleItemClick }) => {
   return (
     filterList.map(asset => {
       return (
@@ -14,6 +14,8 @@ const Feed = ({ filterList, asset }) => {
           volume={asset.total_volume}
           priceChange={asset.price_change_percentage_24h}
           marketCap={asset.market_cap}
+          id={asset.id}
+          handleItemClick={handleItemClick}
         />
       )
     })

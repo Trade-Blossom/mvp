@@ -37,6 +37,23 @@ const App = () => {
     setSearch(e.target.value)
   }
 
+  const handleItemClick = (e) => {
+    console.log(e) // this is the coin id
+
+    axios.get(`https://api.coingecko.com/api/v3/coins/${e}/market_chart?vs_currency=usd&days=14`)
+      .then((history) => {
+        let times = []
+        let prices = []
+        history.data.prices.forEach((price) => {
+          times.push(price[0])
+          prices.push(price[1])
+        })
+        setTimeArray(times)
+        setPriceArray(prices)
+      })
+      .catch((error) => { console.log('error fetching price history: ', error) })
+  }
+
   const filterList = metaData.filter(data =>
     data.name.toLowerCase().includes(search.toLowerCase())
   )
@@ -52,7 +69,7 @@ const App = () => {
       </div>
       <Chart timeArray={timeArray} priceArray={priceArray} />
       <DescriptionBar />
-      <Feed filterList={filterList} />
+      <Feed filterList={filterList} handleItemClick={handleItemClick} />
     </div>
   )
 }
